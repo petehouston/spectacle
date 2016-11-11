@@ -5,8 +5,9 @@ import Radium from "radium";
 @Radium
 export default class Quote extends Component {
   render() {
+    const typefaceStyle = this.context.typeface || {};
     return (
-      <span className={this.props.className} style={[this.context.styles.components.quote, getStyles.call(this), this.props.style]}>
+      <span className={this.props.className} style={[this.context.styles.components.quote, getStyles.call(this), this.props.style, typefaceStyle]}>
         {this.props.children}
       </span>
     );
@@ -20,5 +21,6 @@ Quote.propTypes = {
 };
 
 Quote.contextTypes = {
-  styles: PropTypes.object
+  styles: PropTypes.object,
+  typeface: PropTypes.object
 };

@@ -5,8 +5,9 @@ import Radium from "radium";
 @Radium
 export default class TableHeaderItem extends Component {
   render() {
+    const typefaceStyle = this.context.typeface || {};
     return (
-      <td className={this.props.className} style={[this.context.styles.components.tableHeaderItem, getStyles.call(this), this.props.style]}>
+      <td className={this.props.className} style={[this.context.styles.components.tableHeaderItem, getStyles.call(this), this.props.style, typefaceStyle]}>
         {this.props.children}
       </td>
     );
@@ -20,5 +21,6 @@ TableHeaderItem.propTypes = {
 };
 
 TableHeaderItem.contextTypes = {
-  styles: PropTypes.object
+  styles: PropTypes.object,
+  typeface: PropTypes.object
 };
